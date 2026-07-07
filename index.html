@@ -4,102 +4,116 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hướng dẫn đăng nhập Email | HicaFix</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #131313;
+      color: #e5e2e1;
+      min-height: 100vh;
+    }
 
     header {
-      background: #e8380d;
-      padding: 20px 24px;
+      background: #0e0e0e;
+      border-bottom: 1px solid #5e3f3b;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .header-accent { width: 4px; height: 36px; background: #e30613; border-radius: 2px; flex-shrink: 0; }
+    header h1 { font-family: 'Manrope', sans-serif; color: #e5e2e1; font-size: 17px; font-weight: 700; letter-spacing: -0.02em; }
+    header span { color: #e9bcb6; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2px; display: block; }
+
+    .container { max-width: 640px; margin: 24px auto; padding: 0 16px 48px; }
+
+    .btn-main {
+      display: block; width: 100%; padding: 15px;
+      background: #e30613; color: #fff5f3;
+      text-align: center; font-family: 'Manrope', sans-serif;
+      font-size: 16px; font-weight: 700; border-radius: 4px;
+      text-decoration: none; margin-bottom: 28px; transition: background 0.2s;
+    }
+    .btn-main:hover { background: #c0000c; }
+
+    /* ===== SLIDER ===== */
+    .slider-wrap {
+      background: #201f1f;
+      border: 1px solid #5e3f3b;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.35s ease;
+    }
+
+    .slide {
+      min-width: 100%;
+      padding: 20px;
+    }
+
+    .slide-header {
       display: flex;
       align-items: center;
       gap: 12px;
-    }
-    header h1 { color: white; font-size: 20px; font-weight: 700; }
-    header span { color: rgba(255,255,255,0.85); font-size: 14px; }
-
-    .container { max-width: 680px; margin: 32px auto; padding: 0 16px 48px; }
-
-    .btn-main {
-      display: block;
-      width: 100%;
-      padding: 16px;
-      background: #e8380d;
-      color: white;
-      text-align: center;
-      font-size: 18px;
-      font-weight: 700;
-      border-radius: 10px;
-      text-decoration: none;
-      margin-bottom: 36px;
-      box-shadow: 0 4px 12px rgba(232,56,13,0.3);
-      transition: background 0.2s;
-    }
-    .btn-main:hover { background: #c42d09; }
-
-    .steps-title {
-      font-size: 15px;
-      color: #888;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
-
-    .step {
-      background: white;
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
+      margin-bottom: 14px;
     }
     .step-num {
-      background: #e8380d;
-      color: white;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 16px;
+      background: #e30613; color: #fff5f3;
+      width: 30px; height: 30px; border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 14px;
       flex-shrink: 0;
     }
-    .step-content h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #222; }
-    .step-content p { font-size: 14px; color: #555; line-height: 1.6; }
-    .step-content .note {
-      margin-top: 10px;
-      background: #fff8f0;
-      border-left: 3px solid #e8380d;
-      padding: 10px 12px;
-      border-radius: 4px;
-      font-size: 13px;
-      color: #666;
+    .slide h3 { font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 700; color: #e5e2e1; letter-spacing: -0.01em; }
+    .slide p { font-size: 13px; color: #c7c6c6; line-height: 1.6; margin-bottom: 12px; }
+    .slide p strong { color: #ffb4aa; font-weight: 600; }
+    .note {
+      background: #1c1b1b; border-left: 2px solid #e30613;
+      padding: 9px 12px; border-radius: 2px;
+      font-size: 12px; color: #af8782; line-height: 1.6; margin-bottom: 12px;
     }
-    .step-content .note strong { color: #e8380d; }
+    .note strong { color: #ffb4aa; font-weight: 600; }
+    .slide img { width: 100%; border-radius: 4px; border: 1px solid #5e3f3b; display: block; }
 
-    .result {
-      background: #e8f5e9;
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin-bottom: 24px;
+    /* nav */
+    .slider-nav {
       display: flex;
-      gap: 14px;
       align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-top: 1px solid #5e3f3b;
+      background: #1c1b1b;
     }
-    .result-icon { font-size: 32px; }
-    .result p { font-size: 15px; color: #2e7d32; font-weight: 600; }
+    .nav-btn {
+      background: #2a2a2a; border: 1px solid #5e3f3b; color: #e5e2e1;
+      padding: 7px 16px; border-radius: 2px; cursor: pointer;
+      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-btn:hover { background: #3a3939; }
+    .nav-btn:disabled { opacity: 0.3; cursor: default; }
 
-    footer { text-align: center; color: #aaa; font-size: 12px; margin-top: 32px; }
+    .dots { display: flex; gap: 6px; align-items: center; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #5e3f3b; transition: background 0.2s; cursor: pointer;
+    }
+    .dot.active { background: #e30613; }
+
+    footer { text-align: center; color: #5e3f3b; font-size: 11px; letter-spacing: 0.05em; margin-top: 32px; text-transform: uppercase; }
   </style>
 </head>
 <body>
 
   <header>
+    <div class="header-accent"></div>
+    <img src="hicafixlogo-v2.png" alt="HicaFix" style="height:34px; object-fit:contain;">
     <div>
       <h1>HicaFix Email</h1>
       <span>Hướng dẫn đăng nhập</span>
@@ -112,39 +126,94 @@
       Vào Email ngay →
     </a>
 
-    <div class="steps-title">Hướng dẫn từng bước</div>
+    <div class="slider-wrap">
+      <div class="slides" id="slides">
 
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <h3>Truy cập mail.hicafix.vn</h3>
-        <p>Mở trình duyệt, vào <strong>mail.hicafix.vn</strong> và chọn <strong>"Continue with Google"</strong> tại màn hình đăng nhập Lark.</p>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <h3>Chọn tài khoản Gmail</h3>
-        <p>Đăng nhập bằng Gmail cá nhân đã được admin cấp quyền. Nếu đã đăng nhập Gmail trước đó, chọn đúng tài khoản tương ứng.</p>
-        <div class="note">
-          Ví dụ: Email <strong>hai@hicafix.vn</strong> có Gmail tương ứng là <strong>haikbui1603@gmail.com</strong>
+        <!-- Bước 1 -->
+        <div class="slide">
+          <div class="slide-header">
+            <div class="step-num">1</div>
+            <h3>Truy cập mail.hicafix.vn</h3>
+          </div>
+          <p>Mở trình duyệt, vào <strong>mail.hicafix.vn</strong> và chọn <strong>"Continue with Google"</strong> tại màn hình đăng nhập Lark.</p>
+          <img src="page-1.png" alt="Bước 1">
         </div>
-      </div>
-    </div>
 
-    <div class="result">
-      <div class="result-icon">✅</div>
-      <p>Đăng nhập thành công — bạn sẽ thấy giao diện Lark Mail của HicaFix, sẵn sàng sử dụng!</p>
+        <!-- Bước 2 -->
+        <div class="slide">
+          <div class="slide-header">
+            <div class="step-num">2</div>
+            <h3>Chọn tài khoản Gmail</h3>
+          </div>
+          <p>Đăng nhập bằng Gmail cá nhân đã được admin cấp quyền. Nếu đã đăng nhập Gmail trước đó, chọn đúng tài khoản tương ứng.</p>
+          <div class="note">Ví dụ: Email <strong>hai@hicafix.vn</strong> có Gmail tương ứng là <strong>haikbui1603@gmail.com</strong></div>
+          <img src="page-2.png" alt="Bước 2">
+        </div>
+
+        <!-- Bước 3 -->
+        <div class="slide">
+          <div class="slide-header">
+            <div class="step-num">✓</div>
+            <h3>Đăng nhập thành công!</h3>
+          </div>
+          <p>Bạn sẽ thấy giao diện <strong>Lark Mail của HicaFix</strong>, sẵn sàng sử dụng ngay.</p>
+          <img src="page-3.png" alt="Kết quả">
+        </div>
+
+      </div>
+
+      <div class="slider-nav">
+        <button class="nav-btn" id="btnPrev" onclick="move(-1)" disabled>← Trước</button>
+        <div class="dots">
+          <div class="dot active" onclick="goTo(0)"></div>
+          <div class="dot" onclick="goTo(1)"></div>
+          <div class="dot" onclick="goTo(2)"></div>
+        </div>
+        <button class="nav-btn" id="btnNext" onclick="move(1)">Tiếp →</button>
+      </div>
     </div>
 
     <a href="https://hicafix-vn.jp.larksuite.com/mail" target="_blank" class="btn-main">
       Vào Email ngay →
     </a>
 
-    <footer>HicaFix — Fix What You Need!</footer>
+    <!-- Mobile -->
+    <div style="background:#201f1f; border:1px solid #5e3f3b; border-radius:4px; padding:20px; margin-bottom:24px;">
+      <div style="font-family:'Inter',sans-serif; font-size:11px; color:#af8782; text-transform:uppercase; letter-spacing:0.1em; font-weight:600; margin-bottom:12px;">Trên điện thoại</div>
+      <p style="font-size:13px; color:#c7c6c6; line-height:1.6; margin-bottom:16px;">Tải ứng dụng <strong style="color:#ffb4aa;">Lark</strong> về điện thoại, sau đó đăng nhập theo các bước tương tự.</p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a href="https://apps.apple.com/us/app/lark-team-collaboration/id1452166623" target="_blank"
+          style="flex:1; min-width:140px; display:flex; align-items:center; justify-content:center; gap:8px;
+          background:#1c1b1b; border:1px solid #5e3f3b; border-radius:4px; padding:11px 14px;
+          text-decoration:none; color:#e5e2e1; font-family:'Inter',sans-serif; font-size:13px; font-weight:600; transition:background 0.2s;">
+          🍎 App Store
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.larksuite.suite" target="_blank"
+          style="flex:1; min-width:140px; display:flex; align-items:center; justify-content:center; gap:8px;
+          background:#1c1b1b; border:1px solid #5e3f3b; border-radius:4px; padding:11px 14px;
+          text-decoration:none; color:#e5e2e1; font-family:'Inter',sans-serif; font-size:13px; font-weight:600; transition:background 0.2s;">
+          🤖 Google Play
+        </a>
+      </div>
+    </div>
 
+    <footer>HicaFix — Fix What You Need</footer>
   </div>
+
+  <script>
+    let cur = 0;
+    const total = 3;
+
+    function goTo(n) {
+      cur = n;
+      document.getElementById('slides').style.transform = `translateX(-${cur * 100}%)`;
+      document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+      document.getElementById('btnPrev').disabled = cur === 0;
+      document.getElementById('btnNext').disabled = cur === total - 1;
+    }
+
+    function move(dir) { goTo(Math.min(Math.max(cur + dir, 0), total - 1)); }
+  </script>
 
 </body>
 </html>

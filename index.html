@@ -2,13 +2,149 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=https://hicafix-vn.jp.larksuite.com/mail">
-  <title>Đang chuyển hướng...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hướng dẫn đăng nhập Email | HicaFix</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; }
+
+    header {
+      background: #e8380d;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    header h1 { color: white; font-size: 20px; font-weight: 700; }
+    header span { color: rgba(255,255,255,0.85); font-size: 14px; }
+
+    .container { max-width: 680px; margin: 32px auto; padding: 0 16px 48px; }
+
+    .btn-main {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: #e8380d;
+      color: white;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 36px;
+      box-shadow: 0 4px 12px rgba(232,56,13,0.3);
+      transition: background 0.2s;
+    }
+    .btn-main:hover { background: #c42d09; }
+
+    .steps-title {
+      font-size: 15px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .step {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .step-num {
+      background: #e8380d;
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .step-content h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #222; }
+    .step-content p { font-size: 14px; color: #555; line-height: 1.6; }
+    .step-content .note {
+      margin-top: 10px;
+      background: #fff8f0;
+      border-left: 3px solid #e8380d;
+      padding: 10px 12px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: #666;
+    }
+    .step-content .note strong { color: #e8380d; }
+
+    .result {
+      background: #e8f5e9;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .result-icon { font-size: 32px; }
+    .result p { font-size: 15px; color: #2e7d32; font-weight: 600; }
+
+    footer { text-align: center; color: #aaa; font-size: 12px; margin-top: 32px; }
+  </style>
 </head>
 <body>
-  <script>
-    window.location.replace("https://hicafix-vn.jp.larksuite.com/mail");
-  </script>
-  <p>Đang chuyển hướng... <a href="https://hicafix-vn.jp.larksuite.com/mail">Nhấn vào đây nếu không tự chuyển</a></p>
+
+  <header>
+    <div>
+      <h1>HicaFix Email</h1>
+      <span>Hướng dẫn đăng nhập</span>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <a href="https://hicafix-vn.jp.larksuite.com/mail" target="_blank" class="btn-main">
+      Vào Email ngay →
+    </a>
+
+    <div class="steps-title">Hướng dẫn từng bước</div>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Truy cập mail.hicafix.vn</h3>
+        <p>Mở trình duyệt, vào <strong>mail.hicafix.vn</strong> và chọn <strong>"Continue with Google"</strong> tại màn hình đăng nhập Lark.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Chọn tài khoản Gmail</h3>
+        <p>Đăng nhập bằng Gmail cá nhân đã được admin cấp quyền. Nếu đã đăng nhập Gmail trước đó, chọn đúng tài khoản tương ứng.</p>
+        <div class="note">
+          Ví dụ: Email <strong>hai@hicafix.vn</strong> có Gmail tương ứng là <strong>haikbui1603@gmail.com</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="result">
+      <div class="result-icon">✅</div>
+      <p>Đăng nhập thành công — bạn sẽ thấy giao diện Lark Mail của HicaFix, sẵn sàng sử dụng!</p>
+    </div>
+
+    <a href="https://hicafix-vn.jp.larksuite.com/mail" target="_blank" class="btn-main">
+      Vào Email ngay →
+    </a>
+
+    <footer>HicaFix — Fix What You Need!</footer>
+
+  </div>
+
 </body>
 </html>
